@@ -1,0 +1,27 @@
+import math
+import matplotlib.pyplot as plt
+
+x = [171, 151, 124, 134, 156]
+y = [80, 60, 45, 50, 65]
+n = len(x)
+avx = math.floor(sum(x)/n)
+avy = math.floor(sum(y)/n)
+sumavx = 0
+sumavy = 0
+sumavyx = 0
+for i in x:
+  x1 = i-avx
+  sumavx += x1**2
+for j in range(n):
+  x1 = x[j] - avx
+  y1 = y[j] - avy
+  z = x1*y1
+  sumavyx += z
+
+m = sumavyx/sumavx
+c = avy - m*avx
+
+
+print("y = ", m,"x + ", c)
+plt.scatter(x, y)
+plt.plot(x, y, 'r-')
